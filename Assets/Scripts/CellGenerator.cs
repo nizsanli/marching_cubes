@@ -15,6 +15,8 @@ public class CellGenerator : MonoBehaviour {
 	private MeshFilter meshFilter;
 	private Mesh mesh;
 
+	public Material chunkMaterial;
+
 	private Mesher.GridCell generateCell(int x, int y, int z)
 	{
 		Mesher.GridCell cell = new Mesher.GridCell();
@@ -69,7 +71,7 @@ public class CellGenerator : MonoBehaviour {
 		meshFilter = gameObject.AddComponent<MeshFilter>();
 		mesh = new Mesh();
 
-		meshRenderer.material = (Material) Resources.Load("TestDiffuse");
+		meshRenderer.sharedMaterial = chunkMaterial;
 
 		int initialSize = chunkSize*5*3;
 		List<Vector3> verts = new List<Vector3>(initialSize);
